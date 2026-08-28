@@ -527,71 +527,9 @@
 					"response": "5.0"
 				},
 				{
-					"type": "conditional",
-					"challenge": "Is ANTI-ICE Required?",
-					"paths": {
-						"YES": [
-							{
-								"type": "action",
-								"challenge": "L COWL ANTI-ICE",
-								"response": "ON",
-								"sensed": "L_COWL_ON"
-							},
-							{
-								"type": "action",
-								"challenge": "R COWL ANTI-ICE",
-								"response": "ON",
-								"sensed": "R_COWL_ON"
-							},
-							{
-								"type": "action",
-								"challenge": "L SIDE WINDOW HEAT",
-								"response": "ON",
-								"sensed": "WINDOW_HEAT_L_WINDOW_OFF",
-								"inverted": true
-							},
-							{
-								"type": "action",
-								"challenge": "L WSHLD WINDOW HEAT",
-								"response": "ON",
-								"sensed": "WINDOW_HEAT_L_WSHLD_OFF",
-								"inverted": true
-							},
-							{
-								"type": "action",
-								"challenge": "R WSHLD WINDOW HEAT",
-								"response": "ON",
-								"sensed": "WINDOW_HEAT_R_WSHLD_OFF",
-								"inverted": true
-							},
-							{
-								"type": "action",
-								"challenge": "R SIDE WINDOW HEAT",
-								"response": "ON",
-								"sensed": "WINDOW_HEAT_R_WINDOW_OFF",
-								"inverted": true
-							}
-						],
-						"NO": [
-							{
-								"type": "action",
-								"challenge": "L COWL ANTI-ICE",
-								"response": "AUTO",
-								"sensed": "L_COWL_AUTO"
-							},
-							{
-								"type": "action",
-								"challenge": "R COWL ANTI-ICE",
-								"response": "AUTO",
-								"sensed": "R_COWL_AUTO"
-							}
-						]
-					}
-				},
-				{
 					"type": "action",
 					"challenge": "APU",
-					"response": "As Required"
+					"response": "STARTED"
 				}
 			]
 		},
@@ -610,6 +548,34 @@
 					"challenge": "SEAT BELTS",
 					"response": "OFF",
 					"sensed": "SEAT_BELTS_OFF"
+				},
+				{
+					"type": "multi-select",
+					"challenge": "GPU?",
+					"paths": {
+						"Yes": [
+							{
+								"type": "action",
+								"challenge": "GPU",
+								"response": "ON",
+								"sensed": "ELEC_EXT_PWR_ON"
+							},
+							{
+								"type": "action",
+								"challenge": "APU",
+								"response": "OFF",
+								"sensed": "APU_OFF"
+							}
+						],
+						"No": [
+							{
+								"type": "action",
+								"challenge": "APU",
+								"response": "ON",
+								"sensed": "APU_RUN"
+							}
+						]
+					}
 				},
 				{
 					"type": "action",
@@ -673,171 +639,6 @@
 					"response": "OFF",
 					"sensed": "BEACON_LTS_ON",
 					"inverted": true
-				}
-			]
-		},
-		{
-			"name": "Securing",
-			"phase": "post-flight",
-			"items": [
-				{
-					"type": "action",
-					"challenge": "PARK BRAKE",
-					"response": "ON",
-					"sensed": "PARK_BRAKE_ON"
-				},
-				{
-					"type": "action",
-					"challenge": "EMER LTS",
-					"response": "OFF",
-					"sensed": "EMER_LIGHTS_OFF"
-				},
-				{
-					"type": "action",
-					"challenge": "APU",
-					"response": "OFF",
-					"sensed": "APU_OFF",
-					"comment": "- Allow the APU automatic cooldown\n  process to complete prior to\n  removing battery power.\n- This takes approximately 2 min\n  after moving the APU switch to off\n  and can be verified by the RPM 0%\n  indication on the STATUS Synoptic\n  Page"
-				},
-				{
-					"type": "action",
-					"challenge": "SEAT BELTS",
-					"response": "OFF",
-					"sensed": "SEAT_BELTS_OFF"
-				},
-				{
-					"type": "action",
-					"challenge": "WING INSP LTS",
-					"response": "OFF",
-					"sensed": "WING_INSP_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "action",
-					"challenge": "TAXI LTS",
-					"response": "OFF",
-					"sensed": "TAXI_LTS_OFF"
-				},
-				{
-					"type": "action",
-					"challenge": "L LDG LTS",
-					"response": "OFF",
-					"sensed": "L_LDG_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "action",
-					"challenge": "NOSE LDG LTS",
-					"response": "OFF",
-					"sensed": "NOSE_LDG_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "action",
-					"challenge": "R LDG LTS",
-					"response": "OFF",
-					"sensed": "R_LDG_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "form-feed"
-				},
-				{
-					"type": "action",
-					"challenge": "BEACON LTS",
-					"response": "OFF",
-					"sensed": "BEACON_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "action",
-					"challenge": "STROBE",
-					"response": "OFF",
-					"sensed": "STROBE_LTS_ON",
-					"inverted": true
-				},
-				{
-					"type": "action",
-					"challenge": "NAV LTS",
-					"response": "ON",
-					"sensed": "NAV_LTS_ON"
-				},
-				{
-					"type": "action",
-					"challenge": "DOME",
-					"response": "OFF",
-					"sensed": "DOME_ON",
-					"inverted": true
-				},
-				{
-					"type": "multi-select",
-					"challenge": "Choose desired configuration:\n\n  - Avionics Unpowered\n    * Use for normal wx RON, or'\n      aircraft resets\n\n\n  - Avionics Powered\n     * Use for Cold Wx RON, or crew\n       change\n",
-					"paths": {
-						"AVIONICS UNPOWERED": [
-							{
-								"type": "form-feed"
-							},
-							{
-								"type": "action",
-								"challenge": "EQUIP COOLING INLET",
-								"response": "OFF",
-								"sensed": "INLET_OFF"
-							},
-							{
-								"type": "action",
-								"challenge": "SYN STATUS",
-								"response": "APU RPM 0%"
-							},
-							{
-								"type": "action",
-								"challenge": "BATT 1",
-								"response": "OFF",
-								"sensed": "BATT_1_OFF"
-							},
-							{
-								"type": "action",
-								"challenge": "BATT 2",
-								"response": "OFF",
-								"sensed": "BATT_2_OFF"
-							},
-							{
-								"type": "action",
-								"challenge": "EXT PWR (if connected)",
-								"response": "AVAIL"
-							},
-							{
-								"type": "free-text",
-								"text": "\n                 NOTE:\n  After a complete power-off a minimum\n  time of 60 seconds is recommended\n  before aircraft power is restored."
-							}
-						],
-						"AVIONICS POWERED": [
-							{
-								"type": "form-feed"
-							},
-							{
-								"type": "action",
-								"challenge": "SYN STATUS",
-								"response": "APU RPM 0%"
-							},
-							{
-								"type": "action",
-								"challenge": "BATT 1",
-								"response": "OFF",
-								"sensed": "BATT_1_OFF"
-							},
-							{
-								"type": "action",
-								"challenge": "BATT 2",
-								"response": "OFF",
-								"sensed": "BATT_2_OFF"
-							},
-							{
-								"type": "action",
-								"challenge": "EXT PWR",
-								"response": "IN USE"
-							}
-						]
-					}
 				}
 			]
 		}
