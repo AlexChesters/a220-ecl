@@ -292,12 +292,6 @@
 				},
 				{
 					"type": "action",
-					"challenge": "SPOILER Lever",
-					"response": "RET",
-					"sensed": "SPOILER_LEVER_0"
-				},
-				{
-					"type": "action",
 					"challenge": "Takeoff Config",
 					"response": "Flap",
 					"sensed": "SLAT_FLAP_LEVER_0",
