@@ -1,5 +1,5 @@
 {
-	"name": "Alex Chesters",
+	"name": "checklists",
 	"partNumber": "ECL_B6A220R07A023-16",
 	"normal": [
 		{
@@ -382,7 +382,7 @@
 							{
 								"type": "action",
 								"challenge": "WING ANTI-ICE",
-								"response": "OFF",
+								"response": "OFF ABOVE FL350",
 								"sensed": "WING_OFF"
 							}
 						],
