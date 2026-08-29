@@ -407,6 +407,11 @@
 					"challenge": "WING ANTI-ICE",
 					"response": "AUTO BELOW FL350",
 					"sensed": "WING_AUTO"
+				},
+				{
+					"type": "action",
+					"challenge": "PERF DATA",
+					"response": "COMPLETED"
 				}
 			]
 		},
