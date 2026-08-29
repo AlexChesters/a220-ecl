@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param()
 
-$sourcePath = Join-Path -Path $PSScriptRoot -ChildPath 'src\checklists.json'
+$sourcePath = Join-Path -Path $PSScriptRoot -ChildPath '..\src\checklists.json'
 $destinationPattern = 'C:\Users\alexc\Desktop\msfs2024 addons\Liveries\Synaptic A220\*\Config\*'
 
 if (-not (Test-Path -LiteralPath $sourcePath -PathType Leaf)) {
