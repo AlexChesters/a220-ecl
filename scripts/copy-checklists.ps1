@@ -33,6 +33,8 @@ foreach ($destination in $destinations) {
     }
 }
 
+Copy-Item -LiteralPath $sourcePath -Destination 'C:\Users\alexc\Desktop\msfs2024 addons\Planes\Synaptic A220\synaptic-aircraft-a220\Config\Default' -Force -ErrorAction Stop
+
 Write-Host "Copied checklists.json to $copied destination director$(if ($copied -eq 1) { 'y' } else { 'ies' })."
 
 if ($failed -gt 0) {
